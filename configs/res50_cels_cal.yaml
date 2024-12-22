@@ -1,0 +1,19 @@
+MODEL:
+  NAME: resnet50
+LOSS:
+  
+  #CLA_LOSS: crossentropylabelsmooth
+  #CAL: cal
+###
+  PAIR_LOSS: "triplet"  # 可以設為 "contrastive", "cosface", 或 "circle" 根據需求
+  PAIR_M: 0.3          # margin，用於 triplet loss 或其他需要 margin 的損失
+  PAIR_S: 1.0          # scale，用於 contrastive loss 或其他需要 scale 的損失
+  CLA_LOSS: "crossentropylabelsmooth"
+  CLOTHES_CLA_LOSS: "cosface"
+  CAL: "cal"
+  CLA_S: 16.0          # scale，用於 classification 損失
+  CLA_M: 0.5           # margin，用於 classification 損失
+  EPSILON: 0.1         # 用於 adversarial loss
+  PAIR_LOSS_WEIGHT: 1.0
+TRAIN:
+  AMP: False  # 如果需要啟用 AMP，設為 True
